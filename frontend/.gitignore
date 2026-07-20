@@ -1,0 +1,58 @@
+# ============================================
+# VARDHATE OS — .gitignore
+# ============================================
+
+# ----- Node / NPM -----
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# ----- Vite Build Output -----
+frontend/dist/
+frontend/.vite/
+frontend/.vite-cache/
+
+# ----- Environment / Secrets -----
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+*.pem
+*.key
+
+# ----- PHP / Backend -----
+vendor/
+*.log
+php_errors.log
+
+# ----- OS Generated -----
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ----- Editor / IDE -----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ----- Misc / Temp -----
+*.tmp
+*.temp
+*.bak
+*.orig
+pdf_text.txt
+tools/node/
+
+# ----- Large Media (tracked via Git LFS or kept local) -----
+# Uncomment below if you do NOT want to commit large video/image assets:
+# frontend/public/assets/*.mp4
+# frontend/public/assets/*.MP4
+# frontend/public/assets/*.png
+# frontend/public/assets/*.pdf

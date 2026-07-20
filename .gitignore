@@ -1,9 +1,35 @@
 # Exclude large archive files (too big for GitHub)
 frontend.rar
 
-# Node modules
+# Node modules (anywhere in the project)
 node_modules/
+**/node_modules/
+
+# Build output
+dist/
+frontend/dist/
+frontend/.vite/
+
+# Large video/media assets (too large for GitHub - store externally)
+frontend/public/assets/*.mp4
+frontend/public/assets/*.MP4
+frontend/public/assets/*.mov
+frontend/public/assets/*.MOV
+
+# Environment / Secrets
+.env
+.env.local
+.env.*.local
 
 # OS files
 .DS_Store
 Thumbs.db
+Desktop.ini
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
