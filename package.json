@@ -3,12 +3,9 @@
   "version": "1.0.0",
   "description": "Vardhate - The Trust Wall. Official website repository.",
   "private": true,
-  "workspaces": [
-    "frontend"
-  ],
   "scripts": {
     "dev": "npm run dev --workspace=frontend",
-    "build": "npm run build --workspace=frontend",
+    "build": "cd frontend && npm install && npm run build",
     "preview": "npm run preview --workspace=frontend"
   },
   "keywords": ["vardhate", "trust", "website"],
