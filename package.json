@@ -1,0 +1,18 @@
+{
+  "name": "vardhate-website",
+  "version": "1.0.0",
+  "description": "Vardhate - The Trust Wall. Official website repository.",
+  "private": true,
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "preview": "cd frontend && npm run preview",
+    "install:all": "cd frontend && npm install"
+  },
+  "keywords": ["vardhate", "trust", "website"],
+  "author": "Vardhate",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
