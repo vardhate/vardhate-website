@@ -1,0 +1,9 @@
+# Exclude large archive files (too big for GitHub)
+frontend.rar
+
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
