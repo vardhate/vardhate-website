@@ -451,37 +451,38 @@ const SectorCreativeStudio = () => {
   const trackRef = useRef(null);
 
   // Mapped video lists
+  // TODO: Replace "" with actual video URLs (YouTube embed / CDN links) when provided
   const VIDEO_DB = {
     ugc: [
-      { title: "Impulse Brand UGC Hooks", desc: "A scroll-stopping direct-response UGC video utilizing natural lighting and real consumer voiceovers to drive quick trust decisions.", src: "/assets/UGC.mp4" },
-      { title: "Social Validation UGC", desc: "Peer-to-peer verification format displaying live product unboxings and visual demonstrations targeting Gen Z buying heuristics.", src: "/assets/UGC 2.mp4" },
-      { title: "Decoy Product UGC Testimonial", desc: "A creator-led testimonial focusing on comparative price-value relationships to make premium bundles feel obvious.", src: "/assets/ugc 3.mp4" }
+      { title: "Impulse Brand UGC Hooks", desc: "A scroll-stopping direct-response UGC video utilizing natural lighting and real consumer voiceovers to drive quick trust decisions.", src: "" },
+      { title: "Social Validation UGC", desc: "Peer-to-peer verification format displaying live product unboxings and visual demonstrations targeting Gen Z buying heuristics.", src: "" },
+      { title: "Decoy Product UGC Testimonial", desc: "A creator-led testimonial focusing on comparative price-value relationships to make premium bundles feel obvious.", src: "" }
     ],
     tvc: [
-      { title: "Decoy Tier Product Video", desc: "A product promotion highlighting tier differentials, engineered to steer buyers towards premium options.", src: "/assets/product video 2.mp4" },
-      { title: "High-contrast Lifestyle Spot", desc: "Dynamic lifestyle commercial emphasizing premium brand identity and visual aesthetic dominance.", src: "/assets/product video 3.mp4" },
-      { title: "Direct-Response Kinetic Spot", desc: "Fast-cut product highlight with bold text animations, driving immediate call-to-action responses.", src: "/assets/product video 4.mp4" },
-      { title: "D2C Brand Release Cinematic", desc: "A grand visual launch commercial with high-fidelity sound design and studio-grade coloring.", src: "/assets/product video 5.MP4" },
-      { title: "Impulse Product Close-up", desc: "Detailed close-ups highlighting texture, build quality, and premium design features.", src: "/assets/Product video 6.MP4" },
-      { title: "Studio Light Commercial", desc: "Studio-lit cinematic sequence displaying product reflection and sleek contours.", src: "/assets/Product video 7.MP4" },
-      { title: "Vardhate Cinematic Showcase", desc: "Premium cinematic commercial showcasing crisp camera sweeps, studio grading, and slow-motion product textures.", src: "/assets/product video.mp4" }
+      { title: "Decoy Tier Product Video", desc: "A product promotion highlighting tier differentials, engineered to steer buyers towards premium options.", src: "" },
+      { title: "High-contrast Lifestyle Spot", desc: "Dynamic lifestyle commercial emphasizing premium brand identity and visual aesthetic dominance.", src: "" },
+      { title: "Direct-Response Kinetic Spot", desc: "Fast-cut product highlight with bold text animations, driving immediate call-to-action responses.", src: "" },
+      { title: "D2C Brand Release Cinematic", desc: "A grand visual launch commercial with high-fidelity sound design and studio-grade coloring.", src: "" },
+      { title: "Impulse Product Close-up", desc: "Detailed close-ups highlighting texture, build quality, and premium design features.", src: "" },
+      { title: "Studio Light Commercial", desc: "Studio-lit cinematic sequence displaying product reflection and sleek contours.", src: "" },
+      { title: "Vardhate Cinematic Showcase", desc: "Premium cinematic commercial showcasing crisp camera sweeps, studio grading, and slow-motion product textures.", src: "" }
     ],
     smm: [
-      { title: "AI Generated Concept Commercial", desc: "Futuristic concept video generated entirely using advanced diffusion models, visualizing cybernetic environments.", src: "/assets/ai video.mp4" },
-      { title: "Neural Network Branding Spot", desc: "AI-driven abstract visual sequence outlining cognitive decision architectures and brain mechanics.", src: "/assets/ai video 2.mp4" },
-      { title: "Synthesized Direct Response Hook", desc: "A synthetic video sequence demonstrating rapid context switching, designed to capture short attention spans.", src: "/assets/Ai video 3.mp4" },
-      { title: "Abstract Cognitive Flow Reel", desc: "Generative abstract visualization mapping human decision points and visual attention heatmaps.", src: "/assets/AI video 4.mp4" }
+      { title: "AI Generated Concept Commercial", desc: "Futuristic concept video generated entirely using advanced diffusion models, visualizing cybernetic environments.", src: "" },
+      { title: "Neural Network Branding Spot", desc: "AI-driven abstract visual sequence outlining cognitive decision architectures and brain mechanics.", src: "" },
+      { title: "Synthesized Direct Response Hook", desc: "A synthetic video sequence demonstrating rapid context switching, designed to capture short attention spans.", src: "" },
+      { title: "Abstract Cognitive Flow Reel", desc: "Generative abstract visualization mapping human decision points and visual attention heatmaps.", src: "" }
     ],
     prod: [
-      { title: "Brand Identity Mini-Documentary", desc: "A high-fidelity mini-doc explaining the design history, manufacturing precision, and brand values of a market leader.", src: "/assets/Documentary video.mp4" },
-      { title: "Founder's Vision Story", desc: "A documentary format highlighting the founder's journey, market entry barriers, and the science of choice.", src: "/assets/documentry video 2.mp4" },
-      { title: "Decision Engineering Case Study", desc: "Documentary tracking the before-and-after conversion optimization journey of a scaling D2C client.", src: "/assets/Documentry video 3.MP4" }
+      { title: "Brand Identity Mini-Documentary", desc: "A high-fidelity mini-doc explaining the design history, manufacturing precision, and brand values of a market leader.", src: "" },
+      { title: "Founder's Vision Story", desc: "A documentary format highlighting the founder's journey, market entry barriers, and the science of choice.", src: "" },
+      { title: "Decision Engineering Case Study", desc: "Documentary tracking the before-and-after conversion optimization journey of a scaling D2C client.", src: "" }
     ],
     brand: [
-      { title: "Executive Positioning Story", desc: "A personal branding visual profile establishing authority, professional background, and thought leadership.", src: "/assets/personal branding.mp4" },
-      { title: "Corporate Leader Interview", desc: "A polished studio interview sequence focusing on strategic industry insights and business growth mechanics.", src: "/assets/personal branding 2.mp4" },
-      { title: "Founder Profile Documentary", desc: "Personal branding story capturing daily routines, operational leadership, and brand legacy values.", src: "/assets/personal branding 3.mp4" },
-      { title: "Keynote Authority Highlight", desc: "High-impact keynote presentation highlight sequence establishing market expertise and public speaking clout.", src: "/assets/Personal Branding 5.MP4" }
+      { title: "Executive Positioning Story", desc: "A personal branding visual profile establishing authority, professional background, and thought leadership.", src: "" },
+      { title: "Corporate Leader Interview", desc: "A polished studio interview sequence focusing on strategic industry insights and business growth mechanics.", src: "" },
+      { title: "Founder Profile Documentary", desc: "Personal branding story capturing daily routines, operational leadership, and brand legacy values.", src: "" },
+      { title: "Keynote Authority Highlight", desc: "High-impact keynote presentation highlight sequence establishing market expertise and public speaking clout.", src: "" }
     ]
   };
 
