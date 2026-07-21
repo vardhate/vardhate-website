@@ -57,7 +57,7 @@ const AudioManager = ({ visible }) => {
   const synthRef = useRef(null);
   const [useSynth, setUseSynth] = useState(false);
 
-  const localPath = 'assets/music.mp3';
+  const localPath = '/assets/music.mp3';
   const gdriveAudio = 'https://drive.google.com/uc?export=download&id=1nItZZR61aNFj8fUYXEpN2C5gRSOVj8o-&confirm=t';
   const cdnPath = 'https://assets.codepen.io/2567909/ambient-loop-1.mp3';
 
@@ -70,7 +70,7 @@ const AudioManager = ({ visible }) => {
     audioRef.current = audio;
 
     const handleAudioError = () => {
-      if (audio.src === window.location.origin + '/' + localPath) {
+      if (audio.src === window.location.origin + localPath) {
         console.warn("Local music.mp3 missing. Trying Google Drive...");
         audio.src = gdriveAudio;
         audio.load();

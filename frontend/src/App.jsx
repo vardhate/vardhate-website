@@ -310,10 +310,10 @@ const App = () => {
             <div className="boot-manifesto-container" style={{ textAlign: 'center' }}>
               <div className="boot-logo-wrapper" style={{ marginBottom: '2rem' }}>
                 <img 
-                  src="/assets/vardhate logo white full.png" 
+                  src="/assets/vardhate-logo-white-full.png"
                   alt="VARDHATE Logo" 
                   className="boot-brand-logo" 
-                  onError={(e) => { e.target.onerror = null; e.target.src = '/assets/vardhate logo white.png'; }}
+                  onError={(e) => { e.target.onerror = null; e.target.src = '/assets/vardhate-logo-white.png'; }}
                   style={{ maxWidth: '280px', width: '90%' }}
                 />
               </div>
@@ -374,10 +374,10 @@ const App = () => {
             >
               {/* Logo image (disappears on showPartners) */}
               <img 
-                src="/assets/vardhate logo white full.png" 
+                src="/assets/vardhate-logo-white-full.png"
                 alt="VARDHATE Logo" 
                 className={`living-logo-img breathing ${showPartners ? 'logo-dissolve' : ''}`} 
-                onError={(e) => { e.target.onerror = null; e.target.src = '/assets/vardhate logo white.png'; }}
+                onError={(e) => { e.target.onerror = null; e.target.src = '/assets/vardhate-logo-white.png'; }}
                 style={{
                   position: 'absolute',
                   maxWidth: '100%',

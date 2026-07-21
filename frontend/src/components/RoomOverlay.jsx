@@ -434,7 +434,7 @@ const SectorTrustWall = ({ db }) => {
         We have partnered with <strong>100+ leading brands</strong> to engineer attention, drive engagement, and deliver high-impact choice-architecture campaigns. Below is a collection of clients we have worked with:
       </p>
       <div style={{ width: '100%', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)', boxShadow: '0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(36, 80, 164, 0.15)' }}>
-        <img src="assets/trust_wall_extracted.png" alt="Vardhate Trust Wall - 100+ Clients" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <img src="/assets/trust_wall_extracted.png" alt="Vardhate Trust Wall - 100+ Clients" style={{ width: '100%', height: 'auto', display: 'block' }} />
       </div>
       <div style={{ maxWidth: '800px', margin: '0.5rem auto 0', textAlign: 'center' }}>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: '1.7', fontFamily: 'inherit' }}>
