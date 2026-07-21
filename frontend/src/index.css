@@ -471,8 +471,8 @@ body::after {
   top: 8px;
   left: 12px;
   font-family: 'Share Tech Mono', monospace;
-  font-size: 8px;
-  color: rgba(255, 255, 255, 0.3);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
   letter-spacing: 0.05em;
 }
 
@@ -482,12 +482,14 @@ body::after {
 }
 
 .portal-button-label {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.65);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
   text-transform: uppercase;
   transition: all 0.3s;
+  margin-top: 0.35rem;
 }
 
 /* Orbit Portal Hover states */
@@ -749,9 +751,9 @@ body::after {
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
-  color: rgba(255, 255, 255, 0.65);
-  width: 45px;
-  height: 45px;
+  color: rgba(255, 255, 255, 0.7);
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -776,6 +778,31 @@ body::after {
 
 .dock-item-btn:hover svg {
   transform: scale(1.15);
+}
+
+/* Location blinking dot on the pin button */
+.location-blink-btn {
+  position: relative;
+}
+
+.location-ping-dot {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2450a4;
+  box-shadow: 0 0 0 0 rgba(36,80,164,0.6);
+  animation: locationPing 1.4s ease-in-out infinite;
+  display: block;
+  z-index: 2;
+}
+
+@keyframes locationPing {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(36,80,164,0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(36,80,164,0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(36,80,164,0); }
 }
 
 
@@ -965,8 +992,8 @@ body::after {
 
   .portal-card-code {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 8px;
-    color: rgba(255,255,255,0.3);
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
   }
 
   .portal-card-icon {
@@ -974,24 +1001,26 @@ body::after {
   }
 
   .portal-card-label {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.1em;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     color: white;
     text-transform: uppercase;
   }
 
   .stage-section#stage-center {
     justify-content: flex-start;
-    padding-top: 6rem;
+    padding-top: 5rem;
     overflow-y: auto;
-    padding-bottom: 6.5rem;
+    padding-bottom: 9rem;
   }
 
   .social-dock {
     bottom: 1.25rem;
     left: 50%;
     transform: translateX(-50%);
+    gap: 0.6rem;
   }
 
   .room-header {
@@ -1002,7 +1031,7 @@ body::after {
 
   .room-content-viewport {
     padding-top: 5rem;
-    padding-bottom: 6rem;
+    padding-bottom: 8rem;
   }
 }
 
@@ -2567,6 +2596,200 @@ header {
   0% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
+/* Immersive Worlds Mini-applications styling */
+.chess-board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.chess-tile {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.chess-tile:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent);
+}
+
+.morph-vector-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 2rem 0;
+}
+
+.morph-shape-display {
+  width: 180px;
+  height: 180px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 45px rgba(255,255,255,0.4);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.liquid-color-swatch {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.25s;
+}
+
+.liquid-color-swatch:hover {
+  transform: scale(1.15);
+}
+
+.liquid-color-swatch.active {
+  border-color: white;
+  box-shadow: 0 0 15px currentColor;
+}
+
+.smartphone-frame {
+  width: 260px;
+  height: 500px;
+  border: 8px solid rgba(255,255,255,0.15);
+  border-radius: 36px;
+  background: #000;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+.mood-polaroid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  perspective: 1000px;
+}
+
+.mood-polaroid-card {
+  background: white;
+  color: black;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  transform: rotateZ(-3deg);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.mood-polaroid-card:hover {
+  transform: scale(1.05) rotateZ(0) rotateX(10deg);
+}
+
+.video-timeline-scrub {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+}
+
+.roas-slider-group {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.matrix-code-compiler {
+  font-family: 'Share Tech Mono', monospace;
+  background: #020617;
+  border: 1px solid #3b82f6;
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #10B981;
+}
+
+.neural-flow-canvas {
+  width: 100%;
+  height: 300px;
+  background: rgba(0,0,0,0.5);
+  border: 1px dashed rgba(255,255,255,0.15);
+  border-radius: 12px;
+  position: relative;
+}
+
+/* WhatsApp Floating Button & Mobile Responsiveness Additions */
+.whatsapp-float-btn:hover {
+  transform: scale(1.15) translateY(-3px);
+  box-shadow: 0 12px 35px rgba(36, 80, 164, 0.7), 0 0 25px rgba(36, 80, 164, 0.5) !important;
+}
+
+@media (max-width: 768px) {
+  .studio-video-card {
+    min-width: 250px;
+  }
+  
+  .studio-tab-btn {
+    padding: 0.6rem 1rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  .whatsapp-float-btn {
+    bottom: 4.5rem !important; /* Move up slightly on mobile so it doesn't block the password gate/social dock */
+    right: 1.5rem !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .whatsapp-float-btn svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  /* Make sure overlays stack beautifully in 1 column on small screens */
+  .room-stage-viewport {
+    padding: 2rem 1rem 5rem !important;
+  }
+  
+  .room-nav-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start !important;
+  }
+}
+
+/* WhatsApp pulsing ring animation */
+.whatsapp-pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #2450a4;
+  opacity: 0.4;
+  z-index: 1;
+  animation: whatsapp-pulse 2s infinite;
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Partner logo dissolve particle disperse keyframes */
+@keyframes particle-disperse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
   100% {
     transform: translate(var(--tx), var(--ty)) scale(0.15);
@@ -2578,11 +2801,4 @@ header {
   background: rgba(255, 255, 255, 0.08) !important;
   border-color: var(--accent) !important;
   box-shadow: 0 0 10px rgba(36, 80, 164, 0.3) !important;
-}
-
-/* Location pin blink animation */
-@keyframes locationPing {
-  0% { box-shadow: 0 0 0 0 rgba(36,80,164,0.8); transform: scale(1); }
-  50% { box-shadow: 0 0 0 6px rgba(36,80,164,0); transform: scale(1.2); }
-  100% { box-shadow: 0 0 0 0 rgba(36,80,164,0); transform: scale(1); }
 }

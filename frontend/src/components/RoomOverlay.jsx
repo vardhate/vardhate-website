@@ -450,38 +450,35 @@ const SectorCreativeStudio = () => {
   const [activeTab, setActiveTab] = useState('tvc');
   const trackRef = useRef(null);
 
-  // Mapped video lists — Google Drive iframe embed URLs
-  const gdrive = (id) => `https://drive.google.com/file/d/${id}/preview`;
+  // Mapped video lists — YouTube Shorts embed URLs
+  const yt = (id) => `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&playsinline=1`;
   const VIDEO_DB = {
     ugc: [
-      { title: "Impulse Brand UGC Hooks",       desc: "A scroll-stopping direct-response UGC video utilizing natural lighting and real consumer voiceovers to drive quick trust decisions.",         src: gdrive("16-QvEOVcFZORIbpdRnZS_Yj8GTPX7yvy") },
-      { title: "Social Validation UGC",          desc: "Peer-to-peer verification format displaying live product unboxings and visual demonstrations targeting Gen Z buying heuristics.",          src: gdrive("1F60MSLinJqcUmqqwGnQeofmQ25nUPTj_") },
-      { title: "Decoy Product UGC Testimonial",  desc: "A creator-led testimonial focusing on comparative price-value relationships to make premium bundles feel obvious.",                         src: gdrive("1yU1INF8A-Sn3y9ZTdI0sk6zIDl8ms4co") }
+      { title: "Impulse Brand UGC Hooks",       desc: "A scroll-stopping direct-response UGC video utilizing natural lighting and real consumer voiceovers to drive quick trust decisions.",         src: yt("iTjItgIem80") },
+      { title: "Social Validation UGC",          desc: "Peer-to-peer verification format displaying live product unboxings and visual demonstrations targeting Gen Z buying heuristics.",          src: yt("XrX-qkLp7tk") },
+      { title: "Decoy Product UGC Testimonial",  desc: "A creator-led testimonial focusing on comparative price-value relationships to make premium bundles feel obvious.",                         src: yt("1D9Z9OxZLI8") }
     ],
     tvc: [
-      { title: "Decoy Tier Product Video",        desc: "A product promotion highlighting tier differentials, engineered to steer buyers towards premium options.",                src: gdrive("1nPHMBqx3TpyfCDnJxPmFOJMa83UFtv04") },
-      { title: "High-contrast Lifestyle Spot",    desc: "Dynamic lifestyle commercial emphasizing premium brand identity and visual aesthetic dominance.",                           src: gdrive("1E3NBEQGXT_gpRqQrOm9Tt6zxPgUAy5Dr") },
-      { title: "Direct-Response Kinetic Spot",    desc: "Fast-cut product highlight with bold text animations, driving immediate call-to-action responses.",                          src: gdrive("1AaoRw9e_XO1Goal-StixdDIa50rHXgrp") },
-      { title: "D2C Brand Release Cinematic",     desc: "A grand visual launch commercial with high-fidelity sound design and studio-grade coloring.",                               src: gdrive("1-jnfcGEp9E5otXZBiuHBE4qm0AZllOBt") },
-      { title: "Impulse Product Close-up",        desc: "Detailed close-ups highlighting texture, build quality, and premium design features.",                                     src: gdrive("1oCs8ia5-TQS36y9uNbceXNNNylWvJol4") },
-      { title: "Studio Light Commercial",         desc: "Studio-lit cinematic sequence displaying product reflection and sleek contours.",                                           src: gdrive("1Q4CSekwct73JMpdhKpEIhdl3ArsaHJq-") }
+      { title: "Decoy Tier Product Video",        desc: "A product promotion highlighting tier differentials, engineered to steer buyers towards premium options.",                src: yt("ZSxL7DRiOVM") },
+      { title: "High-contrast Lifestyle Spot",    desc: "Dynamic lifestyle commercial emphasizing premium brand identity and visual aesthetic dominance.",                           src: yt("6X92Gbh8s-A") },
+      { title: "Direct-Response Kinetic Spot",    desc: "Fast-cut product highlight with bold text animations, driving immediate call-to-action responses.",                          src: yt("crly0Lpmteg") },
+      { title: "D2C Brand Release Cinematic",     desc: "A grand visual launch commercial with high-fidelity sound design and studio-grade coloring.",                               src: yt("vExoTu1T-kQ") }
     ],
     smm: [
-      { title: "AI Generated Concept Commercial", desc: "Futuristic concept video generated entirely using advanced diffusion models, visualizing cybernetic environments.",             src: gdrive("1iXfZ-zJrFBMfF9bJBszBfUkvekMFJJcc") },
-      { title: "Neural Network Branding Spot",    desc: "AI-driven abstract visual sequence outlining cognitive decision architectures and brain mechanics.",                          src: gdrive("12ZDatfyiWtXZMOGwL3pTdS_loRaZv5vt") },
-      { title: "Synthesized Direct Response Hook",desc: "A synthetic video sequence demonstrating rapid context switching, designed to capture short attention spans.",               src: gdrive("139IE0CU88-3tLuBfvZB2gdQexGmxCh9w") },
-      { title: "Abstract Cognitive Flow Reel",    desc: "Generative abstract visualization mapping human decision points and visual attention heatmaps.",                             src: gdrive("1vCCPnP7zJLmyfoEgrEguFyYpullEFRBP") }
+      { title: "AI Generated Concept Commercial", desc: "Futuristic concept video generated entirely using advanced diffusion models, visualizing cybernetic environments.",             src: yt("J9AQNmhYl2U") },
+      { title: "Neural Network Branding Spot",    desc: "AI-driven abstract visual sequence outlining cognitive decision architectures and brain mechanics.",                          src: yt("7WLvm5Hlve4") },
+      { title: "Synthesized Direct Response Hook",desc: "A synthetic video sequence demonstrating rapid context switching, designed to capture short attention spans.",               src: yt("7nNxk7ucxkQ") },
+      { title: "Abstract Cognitive Flow Reel",    desc: "Generative abstract visualization mapping human decision points and visual attention heatmaps.",                             src: yt("puSWBzvl0e0") }
     ],
     prod: [
-      { title: "Brand Identity Mini-Documentary", desc: "A high-fidelity mini-doc explaining the design history, manufacturing precision, and brand values of a market leader.",       src: gdrive("14ZSu0QH1F0RP7gWkW4tWoLXPC6BZCL-8") },
-      { title: "Founder's Vision Story",          desc: "A documentary format highlighting the founder's journey, market entry barriers, and the science of choice.",                  src: gdrive("16nbTiBtnB5C02NDUVPPeU09JlqBCBt6d") },
-      { title: "Decision Engineering Case Study", desc: "Documentary tracking the before-and-after conversion optimization journey of a scaling D2C client.",                         src: gdrive("1lVQDfIBOErOklTW80IrY16mV4QRwh-8u") }
+      { title: "Brand Identity Mini-Documentary", desc: "A high-fidelity mini-doc explaining the design history, manufacturing precision, and brand values of a market leader.",       src: yt("pbftRveDP1g") },
+      { title: "Founder's Vision Story",          desc: "A documentary format highlighting the founder's journey, market entry barriers, and the science of choice.",                  src: yt("ZJXFdbIcS3Q") }
     ],
     brand: [
-      { title: "Executive Positioning Story",    desc: "A personal branding visual profile establishing authority, professional background, and thought leadership.",                   src: gdrive("1wUiD-uq3sFRgh7c6xwaDtIasX0VO8Xaz") },
-      { title: "Corporate Leader Interview",     desc: "A polished studio interview sequence focusing on strategic industry insights and business growth mechanics.",                   src: gdrive("1q714Mkx9ZyDlmJKuyQoiSvm6AiAcYzax") },
-      { title: "Founder Profile Documentary",    desc: "Personal branding story capturing daily routines, operational leadership, and brand legacy values.",                          src: gdrive("1Re7w0OMxxjAqLaazIMBRXyOTfF2c9alW") },
-      { title: "Keynote Authority Highlight",    desc: "High-impact keynote presentation highlight sequence establishing market expertise and public speaking clout.",                  src: gdrive("1wP4-DlzKAce-iLWsDc6on_1-cV6KpkPt") }
+      { title: "Executive Positioning Story",    desc: "A personal branding visual profile establishing authority, professional background, and thought leadership.",                   src: yt("Iuto2DMGd1c") },
+      { title: "Corporate Leader Interview",     desc: "A polished studio interview sequence focusing on strategic industry insights and business growth mechanics.",                   src: yt("6eNzw6wTLGc") },
+      { title: "Founder Profile Documentary",    desc: "Personal branding story capturing daily routines, operational leadership, and brand legacy values.",                          src: yt("QkywOu3rUhE") },
+      { title: "Keynote Authority Highlight",    desc: "High-impact keynote presentation highlight sequence establishing market expertise and public speaking clout.",                  src: yt("ggcaLbZr8nY") }
     ]
   };
 

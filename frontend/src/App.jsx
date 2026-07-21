@@ -227,22 +227,46 @@ const App = () => {
     }, 850);
   };
 
-  // 5. Navigate to a portal room
+  // 5. Navigate to a portal room (with URL hash)
   const enterRoom = (portal) => {
     setActivePortal(portal);
     setStage('room');
+    window.history.pushState({ portal: portal.id }, '', `#${portal.id}`);
   };
 
-  // 6. Navigation exit handler
+  // 6. Navigation exit handler (with URL hash clear)
   const handleRoomBack = () => {
     setStage('center');
     setActivePortal(null);
+    window.history.pushState({}, '', window.location.pathname);
   };
 
-  // 7. Security Password handler
+  // 7. Browser back/forward button support
+  useEffect(() => {
+    const handlePopState = (e) => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        const found = PORTALS.find(p => p.id === hash);
+        if (found && stage !== 'boot') {
+          setActivePortal(found);
+          setStage('room');
+        }
+      } else {
+        // No hash = go back to center
+        if (stage === 'room') {
+          setStage('center');
+          setActivePortal(null);
+        }
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [stage]);
+
+  // 8. Security Password handler
   const handleAuthSuccess = (role, redirect) => {
     setAuthRole(role);
-    setStage(redirect); // Redirects to 'admin' or 'viewer' script workspace
+    setStage(redirect);
   };
 
   if (!db) {
@@ -331,16 +355,16 @@ const App = () => {
             {/* Boot stage socials */}
             <div className="boot-social-footer" style={{ pointerEvents: 'auto' }}>
               <a href="https://www.facebook.com/vardhate.in" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
               </a>
-              <a href="https://www.instagram.com/vardhate.in" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <a href="https://www.instagram.com/vardhate.in/reels/" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
               <a href="https://youtube.com/@vardhate" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
               </a>
               <a href="https://linkedin.com/company/vardhate" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               </a>
             </div>
           </div>
@@ -472,7 +496,7 @@ const App = () => {
                     <span className="portal-button-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       {(() => {
                         const PortalIcon = IconMap[portal.icon] || Cpu;
-                        return <PortalIcon size={24} strokeWidth={1.8} />;
+                        return <PortalIcon size={28} strokeWidth={1.6} />;
                       })()}
                     </span>
                   </div>
@@ -491,8 +515,8 @@ const App = () => {
               return (
                 <button key={portal.id} className="portal-card-btn" onClick={() => enterRoom(portal)}>
                   <span className="portal-card-code">{portal.code}</span>
-                  <span className="portal-card-icon" style={{ color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0.25rem 0' }}>
-                    <PortalIcon size={20} strokeWidth={1.8} />
+                  <span className="portal-card-icon" style={{ color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0.35rem 0' }}>
+                    <PortalIcon size={26} strokeWidth={1.6} />
                   </span>
                   <span className="portal-card-label">
                     {TRANSLATIONS[lang][portal.id] || portal.label}
@@ -569,46 +593,30 @@ const App = () => {
           {/* Floating Social Media Dock */}
           <div className="social-dock" id="social-dock" style={{ opacity: 1, pointerEvents: 'auto' }}>
             <a href="https://www.facebook.com/vardhate.in" target="_blank" rel="noopener noreferrer" className="dock-item-btn" aria-label="Facebook">
-              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
             </a>
-            <a href="https://www.instagram.com/vardhate.in" target="_blank" rel="noopener noreferrer" className="dock-item-btn" aria-label="Instagram">
-              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <a href="https://www.instagram.com/vardhate.in/reels/" target="_blank" rel="noopener noreferrer" className="dock-item-btn" aria-label="Instagram Reels">
+              <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
             <a href="https://youtube.com/@vardhate" target="_blank" rel="noopener noreferrer" className="dock-item-btn" aria-label="YouTube">
-              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+              <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
             </a>
             <a href="https://linkedin.com/company/vardhate" target="_blank" rel="noopener noreferrer" className="dock-item-btn" aria-label="LinkedIn">
-              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
-            
-            {/* Location pin button */}
+
+            {/* Location pin button — blinking */}
             <button
-              className="dock-item-btn"
+              className="dock-item-btn location-blink-btn"
               onClick={() => setLocationOpen(true)}
               aria-label="Office Location"
               style={{ position: 'relative' }}
             >
-              <span style={{
-                position: 'absolute', top: '-3px', right: '-3px',
-                width: '8px', height: '8px', borderRadius: '50%',
-                background: '#2450a4',
-                boxShadow: '0 0 0 0 rgba(36,80,164,0.6)',
-                animation: 'locationPing 1.8s ease-in-out infinite',
-                display: 'block'
-              }} />
-              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+              <span className="location-ping-dot" />
+              <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                 <circle cx="12" cy="10" r="3"/>
               </svg>
-            </button>
-
-            {/* Password Gate launcher inside dock */}
-            <button 
-              className="dock-item-btn" 
-              onClick={() => setStage('password')} 
-              aria-label="Secure OS authentication client portal"
-            >
-              🔒
             </button>
           </div>
 
