@@ -58,8 +58,6 @@ const AudioManager = ({ visible }) => {
   const [useSynth, setUseSynth] = useState(false);
 
   const localPath = '/assets/music.mp3';
-  const gdriveAudio = 'https://drive.google.com/uc?export=download&id=1nItZZR61aNFj8fUYXEpN2C5gRSOVj8o-&confirm=t';
-  const cdnPath = 'https://assets.codepen.io/2567909/ambient-loop-1.mp3';
 
   useEffect(() => {
     // Initialize audio element
@@ -70,18 +68,9 @@ const AudioManager = ({ visible }) => {
     audioRef.current = audio;
 
     const handleAudioError = () => {
-      if (audio.src === window.location.origin + localPath) {
-        console.warn("Local music.mp3 missing. Trying Google Drive...");
-        audio.src = gdriveAudio;
-        audio.load();
-      } else if (audio.src === gdriveAudio) {
-        console.warn("Google Drive audio failed. Trying CDN stream...");
-        audio.src = cdnPath;
-        audio.load();
-      } else {
-        console.warn("CDN stream failed. Switching to WebAudio Synth Drone fallback...");
-        setUseSynth(true);
-      }
+      // Local track failed to load — fall back to the generated WebAudio drone.
+      console.warn("Ambient track unavailable. Switching to WebAudio synth fallback...");
+      setUseSynth(true);
     };
 
     audio.addEventListener('error', handleAudioError);
@@ -108,12 +97,9 @@ const AudioManager = ({ visible }) => {
         synthRef.current.startDrone();
       } else {
         audio.play().catch(() => {
-          audio.src = cdnPath;
-          audio.play().catch(() => {
-            setUseSynth(true);
-            if (!synthRef.current) synthRef.current = new SpaceDroneSynth();
-            synthRef.current.startDrone();
-          });
+          setUseSynth(true);
+          if (!synthRef.current) synthRef.current = new SpaceDroneSynth();
+          synthRef.current.startDrone();
         });
       }
     } else {
