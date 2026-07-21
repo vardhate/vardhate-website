@@ -1,0 +1,58 @@
+# ============================================================
+# VARDHATE OS — Apache config (Hostinger / LiteSpeed)
+# This file is copied verbatim into dist/ by Vite on build.
+# ============================================================
+
+# Always serve our built SPA index, never a leftover placeholder.
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # If a request maps to a real file or directory, serve it as-is
+  # (JS, CSS, images, audio, .htaccess-protected assets, etc.).
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else falls back to the single-page app entry point,
+  # so a browser refresh on any URL always loads the live site.
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ------------------------------------------------------------
+# Caching strategy
+# ------------------------------------------------------------
+<IfModule mod_headers.c>
+  # index.html must never be cached, or visitors can get stuck on a
+  # stale build (this is the usual cause of "sometimes I see the old
+  # page, sometimes the new one" after a deploy).
+  <FilesMatch "^index\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Hashed, content-addressed build assets can be cached forever.
+  <FilesMatch "\.(js|css|woff2?|ttf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png              "access plus 30 days"
+  ExpiresByType image/jpeg             "access plus 30 days"
+  ExpiresByType image/svg+xml          "access plus 30 days"
+  ExpiresByType image/webp             "access plus 30 days"
+  ExpiresByType audio/mpeg             "access plus 30 days"
+  ExpiresByType video/mp4              "access plus 30 days"
+</IfModule>
+
+# ------------------------------------------------------------
+# Compression
+# ------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>

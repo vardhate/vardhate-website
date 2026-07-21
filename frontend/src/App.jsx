@@ -49,16 +49,7 @@ const App = () => {
   const [activePortal, setActivePortal] = useState(null);
   const [bootProgress, setBootProgress] = useState(0);
 
-  // Dynamic language localization
-  const [lang, setLang] = useState(() => {
-    return localStorage.getItem('vardhate_lang') || 'en';
-  });
-
-  const toggleLang = () => {
-    const nextLang = lang === 'en' ? 'hi' : 'en';
-    setLang(nextLang);
-    localStorage.setItem('vardhate_lang', nextLang);
-  };
+  const lang = 'en';
 
   const [showPartners, setShowPartners] = useState(false);
   const [particles, setParticles] = useState([]);
@@ -334,20 +325,20 @@ const App = () => {
             <div className="boot-manifesto-container" style={{ textAlign: 'center' }}>
               <div className="boot-logo-wrapper" style={{ marginBottom: '2rem' }}>
                 <img 
-                  src="/assets/vardhate logo white full.png" 
+                  src="/assets/vardhate-logo-white-full.png"
                   alt="VARDHATE Logo" 
                   className="boot-brand-logo" 
-                  onError={(e) => { e.target.onerror = null; e.target.src = '/assets/vardhate logo white.png'; }}
+                  onError={(e) => { e.target.onerror = null; e.target.src = '/assets/vardhate-logo-white.png'; }}
                   style={{ maxWidth: '280px', width: '90%' }}
                 />
               </div>
               <div className="boot-loading-text" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.9rem', letterSpacing: '0.1em', color: 'white' }}>
                 {bootReady ? (
                   <span style={{ color: '#ffffff', fontWeight: 900, textShadow: '0 0 10px rgba(255,255,255,0.4)', animation: 'pulse 1.5s infinite' }}>
-                    {lang === 'hi' ? '[ प्रवेश करने के लिए लोगो पर क्लिक करें ]' : '[ CLICK LOGO TO ENTER ]'}
+                    [ CLICK LOGO TO ENTER ]
                   </span>
                 ) : (
-                  lang === 'hi' ? `संज्ञानात्मक इंजन प्रारंभ हो रहे हैं... [ ${bootProgress}% ]` : `INITIALIZING OS COGNITIVE ENGINES... [ ${bootProgress}% ]`
+                  `INITIALIZING OS COGNITIVE ENGINES... [ ${bootProgress}% ]`
                 )}
               </div>
             </div>
@@ -398,10 +389,10 @@ const App = () => {
             >
               {/* Logo image (disappears on showPartners) */}
               <img 
-                src="/assets/vardhate logo white full.png" 
+                src="/assets/vardhate-logo-white-full.png"
                 alt="VARDHATE Logo" 
                 className={`living-logo-img breathing ${showPartners ? 'logo-dissolve' : ''}`} 
-                onError={(e) => { e.target.onerror = null; e.target.src = '/assets/vardhate logo white.png'; }}
+                onError={(e) => { e.target.onerror = null; e.target.src = '/assets/vardhate-logo-white.png'; }}
                 style={{
                   position: 'absolute',
                   maxWidth: '100%',
@@ -563,33 +554,6 @@ const App = () => {
       
       {(stage === 'center' || stage === 'room') && (
         <>
-          {/* Floating Language Switcher Toggle */}
-          <button 
-            onClick={toggleLang} 
-            className="lang-switcher-btn"
-            style={{
-              position: 'fixed',
-              top: '1.5rem',
-              right: '2rem',
-              zIndex: 1000,
-              background: 'rgba(255, 255, 255, 0.04)',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              color: 'white',
-              padding: '0.45rem 0.9rem',
-              borderRadius: '8px',
-              fontFamily: "'Share Tech Mono', monospace",
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              cursor: 'pointer',
-              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              transition: 'all 0.2s'
-            }}
-          >
-            🌐 {lang === 'en' ? 'हिन्दी' : 'ENGLISH'}
-          </button>
-
           {/* Floating Social Media Dock */}
           <div className="social-dock" id="social-dock" style={{ opacity: 1, pointerEvents: 'auto' }}>
             <a href="https://www.facebook.com/vardhate.in" target="_blank" rel="noopener noreferrer" className="dock-item-btn" aria-label="Facebook">

@@ -25,7 +25,7 @@ const RoomOverlay = ({ portal, db, lang = 'en', onBack, apiBase = '/backend/api.
       <div className="room-nav-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto 3rem', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '1.5rem' }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.75rem', color: 'var(--accent)', letterSpacing: '0.2em' }}>
-            SECTOR 0{portal.code} // {lang === 'hi' ? 'सक्रिय' : 'ONLINE'}
+            SECTOR 0{portal.code} // ONLINE
           </span>
           <h2 style={{ fontSize: '1.75rem', fontWeight: 900, color: 'white', marginTop: '0.25rem', textTransform: 'uppercase' }}>
             {TRANSLATIONS[lang]?.[portal.id] || portal.label}
@@ -87,43 +87,16 @@ const SectorBrandLab = ({ db, lang }) => {
 
   // Texts translations
   const t = {
-    en: {
-      title: "Attention Engineering Simulator",
-      subtitle: "Toggle psychological design triggers to optimize consumer choice pathways:",
-      decoyBtn: "Decoy Plan Framing",
-      anchorBtn: "Focal Point Anchor",
-      scarcityBtn: "Subconscious Scarcity",
-      attentionIndex: "Simulated Eye-tracking Index",
-      activeText: "ACTIVE",
-      inactiveText: "INACTIVE",
-      visualMap: "Live Cognitive Attention Heatmap",
-      desc: "By layering behavioral hooks, eye movement is directed straight to your highest margin bundle, making checkout intuitive."
-    },
-    hi: {
-      title: "ध्यान इंजीनियरिंग सिम्युलेटर (Attention Simulator)",
-      subtitle: "उपभोक्ता पसंद को अनुकूलित करने के लिए मनोवैज्ञानिक ट्रिगर्स सक्रिय करें:",
-      decoyBtn: "डेकॉय योजना (Decoy Price)",
-      anchorBtn: "ध्यान केन्द्रित एंकर (Focal Point)",
-      scarcityBtn: "अवचेतन कमी (Subconscious Urgency)",
-      attentionIndex: "अनुमानित ध्यान सूचकांक (Attention Index)",
-      activeText: "सक्रिय",
-      inactiveText: "निष्क्रिय",
-      visualMap: "लाइव संज्ञानात्मक ध्यान हीटमैप (Live Heatmap)",
-      desc: "मनोवैज्ञानिक हुक लगाने से ग्राहकों की नज़र सीधे आपके सबसे अधिक बिकने वाले कॉम्बो पैक पर जाती है।"
-    }
-  }[lang] || {
-    en: {
-      title: "Attention Engineering Simulator",
-      subtitle: "Toggle psychological design triggers to optimize consumer choice pathways:",
-      decoyBtn: "Decoy Plan Framing",
-      anchorBtn: "Focal Point Anchor",
-      scarcityBtn: "Subconscious Scarcity",
-      attentionIndex: "Simulated Eye-tracking Index",
-      activeText: "ACTIVE",
-      inactiveText: "INACTIVE",
-      visualMap: "Live Cognitive Attention Heatmap",
-      desc: "By layering behavioral hooks, eye movement is directed straight to your highest margin bundle, making checkout intuitive."
-    }
+    title: "Attention Engineering Simulator",
+    subtitle: "Toggle psychological design triggers to optimize consumer choice pathways:",
+    decoyBtn: "Decoy Plan Framing",
+    anchorBtn: "Focal Point Anchor",
+    scarcityBtn: "Subconscious Scarcity",
+    attentionIndex: "Simulated Eye-tracking Index",
+    activeText: "ACTIVE",
+    inactiveText: "INACTIVE",
+    visualMap: "Live Cognitive Attention Heatmap",
+    desc: "By layering behavioral hooks, eye movement is directed straight to your highest margin bundle, making checkout intuitive."
   };
 
   return (
@@ -294,10 +267,10 @@ const SectorBrandLab = ({ db, lang }) => {
       {/* Founder Message Section */}
       <div className="sector-panel" style={{ borderLeft: '3px solid var(--accent)', paddingLeft: '1.5rem' }}>
         <h3 className="sector-panel-title">
-          {lang === 'hi' ? 'हमारे संस्थापक का संदेश (Founder Message)' : (founder.title || "A Message from Our Founder")}
+          {founder.title || "A Message from Our Founder"}
         </h3>
         <p style={{ lineHeight: 1.7, color: 'var(--text-secondary)', marginBottom: '1.5rem', fontStyle: 'italic', fontSize: '1.1rem' }}>
-          "{lang === 'hi' ? 'हम ब्रांड्स के विकास को उपभोक्ताओं के निर्णय मनोविज्ञान से जोड़कर आसान बनाते हैं।' : founder.content}"
+          "{founder.content}"
         </p>
         <p style={{ fontSize: '0.85rem', fontWeight: 700, color: 'white' }}>
           &mdash; {founder.founderName || "Vardhan Ate"}, {founder.founderTitle || "Founder & Chief Decision Officer"}
@@ -307,10 +280,10 @@ const SectorBrandLab = ({ db, lang }) => {
       {/* Science stats */}
       <div className="sector-panel">
         <h3 className="sector-panel-title">
-          {lang === 'hi' ? 'वैज्ञानिक निर्णय लेने की ताकत (Our Stats)' : (stats.title || "The Science of Buying Behaviour")}
+          {stats.title || "The Science of Buying Behaviour"}
         </h3>
         <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
-          {lang === 'hi' ? 'हमारे प्रमाणित कार्य का विवरण:' : stats.subtitle}
+          {stats.subtitle}
         </p>
         <div className="content-grid">
           {stats.items.map((s, i) => (
@@ -434,7 +407,7 @@ const SectorTrustWall = ({ db }) => {
         We have partnered with <strong>100+ leading brands</strong> to engineer attention, drive engagement, and deliver high-impact choice-architecture campaigns. Below is a collection of clients we have worked with:
       </p>
       <div style={{ width: '100%', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)', boxShadow: '0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(36, 80, 164, 0.15)' }}>
-        <img src="assets/trust_wall_extracted.png" alt="Vardhate Trust Wall - 100+ Clients" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <img src="/assets/trust_wall_extracted.png" alt="Vardhate Trust Wall - 100+ Clients" style={{ width: '100%', height: 'auto', display: 'block' }} />
       </div>
       <div style={{ maxWidth: '800px', margin: '0.5rem auto 0', textAlign: 'center' }}>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: '1.7', fontFamily: 'inherit' }}>
