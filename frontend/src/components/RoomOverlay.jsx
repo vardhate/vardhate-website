@@ -423,35 +423,34 @@ const SectorCreativeStudio = () => {
   const [activeTab, setActiveTab] = useState('tvc');
   const trackRef = useRef(null);
 
-  // Mapped video lists — YouTube Shorts embed URLs
-  const yt = (id) => `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&playsinline=1`;
+  // Mapped video lists — YouTube Shorts IDs
   const VIDEO_DB = {
     ugc: [
-      { title: "Impulse Brand UGC Hooks",       desc: "A scroll-stopping direct-response UGC video utilizing natural lighting and real consumer voiceovers to drive quick trust decisions.",         src: yt("iTjItgIem80") },
-      { title: "Social Validation UGC",          desc: "Peer-to-peer verification format displaying live product unboxings and visual demonstrations targeting Gen Z buying heuristics.",          src: yt("XrX-qkLp7tk") },
-      { title: "Decoy Product UGC Testimonial",  desc: "A creator-led testimonial focusing on comparative price-value relationships to make premium bundles feel obvious.",                         src: yt("1D9Z9OxZLI8") }
+      { id: "iTjItgIem80", title: "Impulse Brand UGC Hooks",       desc: "A scroll-stopping direct-response UGC video utilizing natural lighting and real consumer voiceovers to drive quick trust decisions." },
+      { id: "XrX-qkLp7tk", title: "Social Validation UGC",          desc: "Peer-to-peer verification format displaying live product unboxings and visual demonstrations targeting Gen Z buying heuristics." },
+      { id: "1D9Z9OxZLI8", title: "Decoy Product UGC Testimonial",  desc: "A creator-led testimonial focusing on comparative price-value relationships to make premium bundles feel obvious." }
     ],
     tvc: [
-      { title: "Decoy Tier Product Video",        desc: "A product promotion highlighting tier differentials, engineered to steer buyers towards premium options.",                src: yt("ZSxL7DRiOVM") },
-      { title: "High-contrast Lifestyle Spot",    desc: "Dynamic lifestyle commercial emphasizing premium brand identity and visual aesthetic dominance.",                           src: yt("6X92Gbh8s-A") },
-      { title: "Direct-Response Kinetic Spot",    desc: "Fast-cut product highlight with bold text animations, driving immediate call-to-action responses.",                          src: yt("crly0Lpmteg") },
-      { title: "D2C Brand Release Cinematic",     desc: "A grand visual launch commercial with high-fidelity sound design and studio-grade coloring.",                               src: yt("vExoTu1T-kQ") }
+      { id: "ZSxL7DRiOVM", title: "Decoy Tier Product Video",        desc: "A product promotion highlighting tier differentials, engineered to steer buyers towards premium options." },
+      { id: "6X92Gbh8s-A", title: "High-contrast Lifestyle Spot",    desc: "Dynamic lifestyle commercial emphasizing premium brand identity and visual aesthetic dominance." },
+      { id: "crly0Lpmteg", title: "Direct-Response Kinetic Spot",    desc: "Fast-cut product highlight with bold text animations, driving immediate call-to-action responses." },
+      { id: "vExoTu1T-kQ", title: "D2C Brand Release Cinematic",     desc: "A grand visual launch commercial with high-fidelity sound design and studio-grade coloring." }
     ],
     smm: [
-      { title: "AI Generated Concept Commercial", desc: "Futuristic concept video generated entirely using advanced diffusion models, visualizing cybernetic environments.",             src: yt("J9AQNmhYl2U") },
-      { title: "Neural Network Branding Spot",    desc: "AI-driven abstract visual sequence outlining cognitive decision architectures and brain mechanics.",                          src: yt("7WLvm5Hlve4") },
-      { title: "Synthesized Direct Response Hook",desc: "A synthetic video sequence demonstrating rapid context switching, designed to capture short attention spans.",               src: yt("7nNxk7ucxkQ") },
-      { title: "Abstract Cognitive Flow Reel",    desc: "Generative abstract visualization mapping human decision points and visual attention heatmaps.",                             src: yt("puSWBzvl0e0") }
+      { id: "J9AQNmhYl2U", title: "AI Generated Concept Commercial", desc: "Futuristic concept video generated entirely using advanced diffusion models, visualizing cybernetic environments." },
+      { id: "7WLvm5Hlve4", title: "Neural Network Branding Spot",    desc: "AI-driven abstract visual sequence outlining cognitive decision architectures and brain mechanics." },
+      { id: "7nNxk7ucxkQ", title: "Synthesized Direct Response Hook",desc: "A synthetic video sequence demonstrating rapid context switching, designed to capture short attention spans." },
+      { id: "puSWBzvl0e0", title: "Abstract Cognitive Flow Reel",    desc: "Generative abstract visualization mapping human decision points and visual attention heatmaps." }
     ],
     prod: [
-      { title: "Brand Identity Mini-Documentary", desc: "A high-fidelity mini-doc explaining the design history, manufacturing precision, and brand values of a market leader.",       src: yt("pbftRveDP1g") },
-      { title: "Founder's Vision Story",          desc: "A documentary format highlighting the founder's journey, market entry barriers, and the science of choice.",                  src: yt("ZJXFdbIcS3Q") }
+      { id: "pbftRveDP1g", title: "Brand Identity Mini-Documentary", desc: "A high-fidelity mini-doc explaining the design history, manufacturing precision, and brand values of a market leader." },
+      { id: "ZJXFdbIcS3Q", title: "Founder's Vision Story",          desc: "A documentary format highlighting the founder's journey, market entry barriers, and the science of choice." }
     ],
     brand: [
-      { title: "Executive Positioning Story",    desc: "A personal branding visual profile establishing authority, professional background, and thought leadership.",                   src: yt("Iuto2DMGd1c") },
-      { title: "Corporate Leader Interview",     desc: "A polished studio interview sequence focusing on strategic industry insights and business growth mechanics.",                   src: yt("6eNzw6wTLGc") },
-      { title: "Founder Profile Documentary",    desc: "Personal branding story capturing daily routines, operational leadership, and brand legacy values.",                          src: yt("QkywOu3rUhE") },
-      { title: "Keynote Authority Highlight",    desc: "High-impact keynote presentation highlight sequence establishing market expertise and public speaking clout.",                  src: yt("ggcaLbZr8nY") }
+      { id: "Iuto2DMGd1c", title: "Executive Positioning Story",    desc: "A personal branding visual profile establishing authority, professional background, and thought leadership." },
+      { id: "6eNzw6wTLGc", title: "Corporate Leader Interview",     desc: "A polished studio interview sequence focusing on strategic industry insights and business growth mechanics." },
+      { id: "QkywOu3rUhE", title: "Founder Profile Documentary",    desc: "Personal branding story capturing daily routines, operational leadership, and brand legacy values." },
+      { id: "ggcaLbZr8nY", title: "Keynote Authority Highlight",    desc: "High-impact keynote presentation highlight sequence establishing market expertise and public speaking clout." }
     ]
   };
 
@@ -511,46 +510,62 @@ const SectorCreativeStudio = () => {
   );
 };
 
-// Sub-component: Video Card inside Studio Carousel — Google Drive iframe embed
+// Sub-component: Video Card inside Studio Carousel — Hover to Autoplay YouTube Player
 const StudioVideoCard = ({ v }) => {
-  const [loaded, setLoaded] = useState(false);
+  const [playing, setPlaying] = useState(false);
+
+  const embedUrl = `https://www.youtube.com/embed/${v.id}?autoplay=1&mute=1&loop=1&playlist=${v.id}&controls=1&modestbranding=1&rel=0&enablejsapi=1`;
 
   return (
-    <div className="studio-video-card">
-      {/* Skeleton loader shown until iframe is ready */}
-      {!loaded && (
-        <div style={{
-          width: '100%',
-          aspectRatio: '9/16',
-          background: 'linear-gradient(135deg, rgba(36,80,164,0.25) 0%, rgba(10,10,20,0.6) 100%)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderRadius: '12px',
-          color: 'rgba(255,255,255,0.4)',
-          fontSize: '0.75rem',
-          letterSpacing: '0.1em'
-        }}>
-          <span style={{ animation: 'pulse 1.5s ease-in-out infinite' }}>▶ Loading...</span>
-        </div>
-      )}
-      <iframe
-        src={v.src}
-        allow="autoplay; encrypted-media"
-        allowFullScreen
-        frameBorder="0"
-        loading="lazy"
-        onLoad={() => setLoaded(true)}
-        style={{
-          width: '100%',
-          aspectRatio: '9/16',
-          borderRadius: '12px',
-          border: 'none',
-          background: '#000',
-          display: loaded ? 'block' : 'none'
-        }}
-        title={v.title}
-      />
+    <div 
+      className="studio-video-card"
+      onMouseEnter={() => setPlaying(true)}
+      onClick={() => setPlaying(true)}
+      style={{ cursor: 'pointer' }}
+    >
+      <div style={{ position: 'relative', width: '100%', aspectRatio: '9/16', borderRadius: '12px', overflow: 'hidden', background: '#000' }}>
+        {playing ? (
+          <iframe
+            src={embedUrl}
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowFullScreen
+            frameBorder="0"
+            style={{
+              width: '100%',
+              height: '100%',
+              borderRadius: '12px',
+              border: 'none'
+            }}
+            title={v.title}
+          />
+        ) : (
+          <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+            <img 
+              src={`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`} 
+              alt={v.title}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              onError={(e) => { e.target.src = `https://img.youtube.com/vi/${v.id}/0.jpg`; }}
+            />
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.4) 100%)',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.6rem'
+            }}>
+              <div style={{
+                width: '52px', height: '52px', borderRadius: '50%',
+                background: '#2450a4', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                boxShadow: '0 0 25px rgba(36,80,164,0.9)', color: 'white', fontSize: '1.2rem',
+                transform: 'scale(1)', transition: 'transform 0.2s'
+              }}>
+                ▶
+              </div>
+              <span style={{ fontSize: '0.7rem', fontWeight: 700, color: 'rgba(255,255,255,0.9)', letterSpacing: '0.1em', textTransform: 'uppercase', background: 'rgba(0,0,0,0.6)', padding: '4px 10px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.15)' }}>
+                HOVER TO PLAY
+              </span>
+            </div>
+          </div>
+        )}
+      </div>
       <div className="studio-video-title" style={{ marginTop: '0.75rem', textAlign: 'left', fontSize: '0.9rem', fontWeight: 800, color: 'white' }}>{v.title}</div>
       <div className="studio-video-desc" style={{ marginTop: '0.25rem', textAlign: 'left', fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', lineHeight: '1.4' }}>{v.desc}</div>
     </div>
