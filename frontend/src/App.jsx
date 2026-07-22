@@ -675,7 +675,7 @@ const App = () => {
                 style={{ border: 0, display: 'block' }}
                 loading="lazy"
                 allowFullScreen
-                src="https://maps.google.com/maps?q=21.233688,72.8740382&z=16&output=embed"
+                src="https://maps.google.com/maps?q=21.2321332,72.8779271&z=16&output=embed"
               />
             </div>
 
