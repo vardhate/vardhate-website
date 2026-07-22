@@ -11,12 +11,12 @@ export const VARDHATE_DEFAULT_DATA = {
     email: "partner@vardhate.com",
     phone: "+91 98765 43210",
     whatsapp: "+91 98765 43210",
-    address: "One Horizon Centre, DLF Phase 5, Gurugram, India",
-    googleMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.825102554763!2d77.09831777631343!3d28.484803775747065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d193be5555555%3A0x6bbfbbbbbbbbbbbb!2sDLF%20One%20Horizon%20Center!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+    address: "403 , YAMUNA CHOWK, KBC, Surat, Gujarat 395006",
+    googleMap: "https://maps.google.com/maps?q=21.233688,72.8740382&z=16&output=embed",
     socials: {
-      linkedin: "https://linkedin.com/company/vardhate",
-      instagram: "https://instagram.com/vardhate",
-      twitter: "https://twitter.com/vardhate"
+      linkedin: "https://www.linkedin.com/company/vardhate.in",
+      instagram: "https://instagram.com/vardhate.in/reels/",
+      youtube: "https://www.youtube.com/@Vardhate-in"
     },
     seo: {
       title: "VARDHATE | India's No.1 Consumer Decision Company",

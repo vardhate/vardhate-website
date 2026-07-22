@@ -84,6 +84,24 @@ const AudioManager = ({ visible }) => {
     };
   }, []);
 
+  // Autoplay background music once the user enters the hub
+  useEffect(() => {
+    if (visible && !isPlaying) {
+      const audio = audioRef.current;
+      if (audio) {
+        audio.play()
+          .then(() => setIsPlaying(true))
+          .catch(() => {
+            // Fallback if browser blocks audio autoplay
+            setUseSynth(true);
+            if (!synthRef.current) synthRef.current = new SpaceDroneSynth();
+            synthRef.current.startDrone();
+            setIsPlaying(true);
+          });
+      }
+    }
+  }, [visible]);
+
   const toggle = () => {
     const audio = audioRef.current;
     if (!audio) return;

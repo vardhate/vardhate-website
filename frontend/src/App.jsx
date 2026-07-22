@@ -351,10 +351,10 @@ const App = () => {
               <a href="https://www.instagram.com/vardhate.in/reels/" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
                 <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
-              <a href="https://youtube.com/@vardhate" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+              <a href="https://www.youtube.com/@Vardhate-in" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
                 <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
               </a>
-              <a href="https://linkedin.com/company/vardhate" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+              <a href="https://www.linkedin.com/company/vardhate.in" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
                 <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               </a>
             </div>
@@ -401,7 +401,7 @@ const App = () => {
                   transform: showPartners ? 'scale(0.3) rotate(180deg)' : 'scale(1)',
                   filter: showPartners ? 'blur(10px)' : 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.25))',
                   transition: 'all 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045)',
-                  pointerEvents: showPartners ? 'none' : 'auto'
+                  pointerEvents: 'none'
                 }}
               />
 
@@ -424,7 +424,7 @@ const App = () => {
                   transform: showPartners ? 'scale(1) rotate(0deg)' : 'scale(0.3) rotate(-180deg)',
                   filter: showPartners ? 'drop-shadow(0 0 15px rgba(36, 80, 164, 0.5))' : 'blur(10px)',
                   transition: 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                  pointerEvents: showPartners ? 'auto' : 'none'
+                  pointerEvents: 'none'
                 }}
               />
 
@@ -562,10 +562,10 @@ const App = () => {
             <a href="https://www.instagram.com/vardhate.in/reels/" target="_blank" rel="noopener noreferrer" className="dock-item-btn" aria-label="Instagram Reels">
               <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
-            <a href="https://youtube.com/@vardhate" target="_blank" rel="noopener noreferrer" className="dock-item-btn" aria-label="YouTube">
+            <a href="https://www.youtube.com/@Vardhate-in" target="_blank" rel="noopener noreferrer" className="dock-item-btn" aria-label="YouTube">
               <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
             </a>
-            <a href="https://linkedin.com/company/vardhate" target="_blank" rel="noopener noreferrer" className="dock-item-btn" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/vardhate.in" target="_blank" rel="noopener noreferrer" className="dock-item-btn" aria-label="LinkedIn">
               <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
 
@@ -661,11 +661,12 @@ const App = () => {
                   <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#2450a4', boxShadow: '0 0 10px #2450a4', animation: 'locationPing 1.8s infinite', display: 'inline-block' }} />
                   <span style={{ fontSize: '0.7rem', letterSpacing: '0.12em', color: '#4a7fd4', fontWeight: 700 }}>LIVE LOCATION</span>
                 </div>
-                <h3 style={{ color: 'white', fontWeight: 900, fontSize: '1.2rem', margin: '0.25rem 0 0' }}>Vardhate HQ — Pune, India</h3>
-                <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.82rem', margin: '0.2rem 0 0' }}>📍 Office No. 101, Innovation Hub, Baner Road, Pune — 411045, Maharashtra</p>
+                <h3 style={{ color: 'white', fontWeight: 900, fontSize: '1.2rem', margin: '0.25rem 0 0' }}>Vardhate HQ — Surat, India</h3>
+                <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.82rem', margin: '0.2rem 0 0' }}>📍 403, YAMUNA CHOWK, KBC, Surat, Gujarat - 395006</p>
               </div>
               <button onClick={() => setLocationOpen(false)} style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>✕</button>
-                       {/* Map embed */}
+            </div>
+            {/* Map embed */}
             <div style={{ position: 'relative', height: '240px' }}>
               <iframe
                 title="Vardhate Location Map"
@@ -674,7 +675,7 @@ const App = () => {
                 style={{ border: 0, display: 'block' }}
                 loading="lazy"
                 allowFullScreen
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.265588556298!2d73.78529231537845!3d18.559284087382587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf22437ae091%3A0xc27a5bb4c00c9fe!2sBaner%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1637000000000!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=21.233688,72.8740382&z=16&output=embed"
               />
             </div>
 
@@ -710,12 +711,14 @@ const App = () => {
 
             {/* Footer links */}
             <div style={{ padding: '1.25rem 1.75rem', borderTop: '1px solid rgba(255,255,255,0.07)', display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
-              <a href="https://share.google/8nYczw1RqeyQ6W2QJ" target="_blank" rel="noopener noreferrer"
+              <a href="https://share.google/nXkoxBi9kS5qKVird" target="_blank" rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.7rem 1.4rem', borderRadius: '10px', background: '#2450a4', color: 'white', textDecoration: 'none', fontWeight: 800, fontSize: '0.85rem', boxShadow: '0 4px 15px rgba(36,80,164,0.4)' }}>
                 🗺️ Open Live Google Maps Location & Reviews
               </a>
               <a href="tel:+919081105344"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.65rem 1.2rem', borderRadius: '10px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', textDecoration: 'none', fontWeight: 700, fontSize: '0.82rem' }}>
+                📞 +91 90811 05344
+              </a>
             </div>
           </div>
         </div>
