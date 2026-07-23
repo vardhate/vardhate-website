@@ -663,7 +663,7 @@ const App = () => {
                 style={{ border: 0, display: 'block' }}
                 loading="lazy"
                 allowFullScreen
-                src="https://maps.google.com/maps?q=loc:21.2321332,72.8779271(Vardhate+HQ)&z=18&t=h&output=embed"
+                src="https://maps.google.com/maps?q=21.2321332,72.8779271+(Vardhate+HQ)&z=17&t=h&output=embed"
               />
             </div>
 

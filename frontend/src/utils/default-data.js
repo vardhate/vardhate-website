@@ -12,7 +12,7 @@ export const VARDHATE_DEFAULT_DATA = {
     phone: "+91 98765 43210",
     whatsapp: "+91 98765 43210",
     address: "403 , YAMUNA CHOWK, KBC, Surat, Gujarat 395006",
-    googleMap: "https://maps.google.com/maps?q=21.2321332,72.8779271&z=18&t=h&output=embed",
+    googleMap: "https://maps.google.com/maps?q=21.2321332,72.8779271+(Vardhate+HQ)&z=17&t=h&output=embed",
     socials: {
       linkedin: "https://www.linkedin.com/company/vardhate.in",
       instagram: "https://instagram.com/vardhate.in/reels/",
