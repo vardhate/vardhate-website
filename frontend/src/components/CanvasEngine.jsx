@@ -21,7 +21,13 @@ const CanvasEngine = ({ stage }) => {
 
     const init = () => {
       particles = [];
-      const N = window.innerWidth < 768 ? 55 : 110;
+      const isMobile = window.innerWidth < 768;
+      const isTablet = window.innerWidth >= 768 && window.innerWidth <= 1024;
+      
+      let N = 110;
+      if (isMobile) N = 35;
+      else if (isTablet) N = 50;
+
       for (let i = 0; i < N; i++) {
         const angle = (i / N) * Math.PI * 2 * 6;
         const baseRadius = 50 + (i / N) * (Math.max(canvas.width, canvas.height) * 0.5);
@@ -153,7 +159,7 @@ const CanvasEngine = ({ stage }) => {
           ctx.fill();
         });
 
-        const maxLineDist = 95;
+        const maxLineDist = window.innerWidth < 768 ? 65 : 95;
         const maxLineDistSq = maxLineDist * maxLineDist;
         
         for (let i = 0; i < particles.length; i++) {
