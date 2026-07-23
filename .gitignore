@@ -17,8 +17,6 @@ frontend/public/assets/*.mov
 frontend/public/assets/*.MOV
 
 # Environment / Secrets
-.env
-.env.local
 .env.*.local
 
 # OS files
@@ -27,9 +25,9 @@ Thumbs.db
 Desktop.ini
 
 # Editor
-.vscode/
 .idea/
 
 # Logs
 *.log
 npm-debug.log*
+config.bat
