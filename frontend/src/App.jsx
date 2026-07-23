@@ -516,9 +516,6 @@ const App = () => {
               );
             })}
           </div>
-
-          {/* Scroll spacer to bypass browser flex scroll padding bug */}
-          <div className="mobile-scroll-spacer" />
         </section>
       )}
 
@@ -663,7 +660,7 @@ const App = () => {
                 style={{ border: 0, display: 'block' }}
                 loading="lazy"
                 allowFullScreen
-                src="https://maps.google.com/maps?q=21.2321332,72.8779271+(Vardhate+HQ)&z=17&t=h&output=embed"
+                src="https://maps.google.com/maps?q=21.2321332,72.8779271&z=16&output=embed"
               />
             </div>
 

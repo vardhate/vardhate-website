@@ -2816,15 +2816,11 @@ header {
   /* Boost scroll heights on mobile/tablet so details are fully scrollable and not blocked by bottom bar */
   .room-content-viewport {
     padding-top: 4.5rem !important;
-    padding-bottom: 220px !important;
+    padding-bottom: 160px !important;
   }
   
   .room-stage-viewport {
-    padding: 1.5rem 1rem 220px !important;
-  }
-
-  .stage-section#stage-center {
-    padding-bottom: 220px !important;
+    padding: 1.5rem 1rem 160px !important;
   }
 }
 
@@ -2834,7 +2830,6 @@ header {
     grid-template-columns: repeat(2, 1fr) !important; /* 2 columns on phone screen */
     max-width: 380px !important;
     gap: 0.6rem !important;
-    padding-bottom: 60px !important; /* extra bottom padding on portals grid */
   }
   .portal-card-btn {
     padding: 1rem 0.75rem !important;
@@ -2935,19 +2930,4 @@ header {
 .whatsapp-dock-btn:hover {
   transform: scale(1.15) translateY(-3px);
   box-shadow: 0 12px 35px rgba(36, 80, 164, 0.7), 0 0 25px rgba(36, 80, 164, 0.5) !important;
-}
-
-/* Mobile Scroll Spacer Rule to fix Flex layout scroll padding browser bug */
-.mobile-scroll-spacer {
-  display: none;
-}
-
-@media (max-width: 1024px) {
-  .mobile-scroll-spacer {
-    display: block !important;
-    height: 130px !important;
-    width: 100% !important;
-    flex-shrink: 0 !important;
-    pointer-events: none !important;
-  }
 }
