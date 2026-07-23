@@ -13,7 +13,6 @@ const RoomOverlay = ({ portal, db, lang = 'en', onBack, apiBase = '/backend/api.
         position: 'absolute', 
         inset: 0, 
         zIndex: 10, 
-        padding: '3rem 1.5rem 6rem', 
         overflowY: 'auto', 
         background: 'rgba(5, 5, 5, 0.95)', 
         backdropFilter: 'blur(20px)',

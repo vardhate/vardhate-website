@@ -2816,11 +2816,15 @@ header {
   /* Boost scroll heights on mobile/tablet so details are fully scrollable and not blocked by bottom bar */
   .room-content-viewport {
     padding-top: 4.5rem !important;
-    padding-bottom: 160px !important;
+    padding-bottom: 220px !important;
   }
   
   .room-stage-viewport {
-    padding: 1.5rem 1rem 160px !important;
+    padding: 1.5rem 1rem 220px !important;
+  }
+
+  .stage-section#stage-center {
+    padding-bottom: 220px !important;
   }
 }
 
@@ -2830,6 +2834,7 @@ header {
     grid-template-columns: repeat(2, 1fr) !important; /* 2 columns on phone screen */
     max-width: 380px !important;
     gap: 0.6rem !important;
+    padding-bottom: 60px !important; /* extra bottom padding on portals grid */
   }
   .portal-card-btn {
     padding: 1rem 0.75rem !important;
