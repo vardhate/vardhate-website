@@ -329,7 +329,7 @@ const App = () => {
                   alt="VARDHATE Logo" 
                   className="boot-brand-logo" 
                   onError={(e) => { e.target.onerror = null; e.target.src = '/assets/vardhate-logo-white.png'; }}
-                  style={{ maxWidth: '280px', width: '90%' }}
+                  style={{ maxWidth: '200px', width: '70%', height: 'auto', objectFit: 'contain' }}
                 />
               </div>
               <div className="boot-loading-text" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.9rem', letterSpacing: '0.1em', color: 'white' }}>
