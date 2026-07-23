@@ -374,7 +374,7 @@ const App = () => {
           <div className="center-branding" style={{ pointerEvents: 'auto' }}>
             <div 
               className="living-logo-container" 
-              onDoubleClick={handleLogoDoubleClick}
+              onClick={handleLogoDoubleClick}
               style={{ 
                 position: 'relative', 
                 width: '320px', 
@@ -582,6 +582,34 @@ const App = () => {
                 <circle cx="12" cy="10" r="3"/>
               </svg>
             </button>
+
+            {/* WhatsApp contact button inside social dock */}
+            <a 
+              href="https://wa.me/919081105344?text=Hello%20Vardhate%20OS,%20I%20am%20interested%20in%20your%20choice%20engineering%20services."
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="dock-item-btn whatsapp-dock-btn"
+              title={TRANSLATIONS[lang].whatsappTooltip}
+              style={{ position: 'relative' }}
+            >
+              <span className="whatsapp-pulse-ring"></span>
+              {/* Official WhatsApp icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 175.216 175.552"
+                width="22"
+                height="22"
+                style={{ zIndex: 2, position: 'relative' }}
+              >
+                <defs>
+                  <linearGradient id="wa-grad" x1="85.915" y1="175.552" x2="86.535" y2="0.174" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stopColor="#fff"/>
+                    <stop offset="1" stopColor="#fff"/>
+                  </linearGradient>
+                </defs>
+                <path fill="url(#wa-grad)" d="M87.184 4.176C43.178 4.176 7.39 39.964 7.384 83.97c-.001 13.924 3.637 27.51 10.566 39.47L6.544 171.4l49.135-12.898a79.573 79.573 0 0 0 31.464 6.53h.04c44 0 79.788-35.789 79.796-79.795.003-21.315-8.294-41.355-23.368-56.44C128.534 12.48 108.497 4.178 87.184 4.176zm0 146.043h-.032a66.067 66.067 0 0 1-33.684-9.22l-2.42-1.436-25.078 6.582 6.698-24.464-1.575-2.506a65.907 65.907 0 0 1-10.113-35.205c.006-36.447 29.675-66.11 66.135-66.11 17.664.003 34.266 6.888 46.74 19.373 12.473 12.486 19.344 29.094 19.34 46.763-.006 36.45-29.676 66.123-66.011 66.123zm36.266-49.524c-1.987-1-11.754-5.804-13.576-6.46-1.822-.658-3.147-.986-4.471.993-1.325 1.98-5.129 6.46-6.289 7.786-1.16 1.328-2.319 1.493-4.306.498s-8.388-3.09-15.977-9.865c-5.908-5.273-9.895-11.783-11.056-13.763-1.16-1.983-.124-3.055.872-4.041.895-.886 1.985-2.31 2.978-3.464 1-1.152 1.325-1.979 1.99-3.302.66-1.326.33-2.484-.164-3.479-.495-.993-4.471-10.774-6.123-14.748-1.612-3.875-3.251-3.35-4.471-3.41-1.158-.059-2.484-.07-3.808-.07-1.326 0-3.48.497-5.3 2.478-1.822 1.98-6.953 6.793-6.953 16.573s7.118 19.23 8.11 20.556c.993 1.325 14.009 21.386 33.938 30.003 4.742 2.047 8.444 3.27 11.332 4.185 4.764 1.513 9.102 1.3 12.528.788 3.82-.569 11.758-4.813 13.41-9.46 1.66-4.646 1.66-8.625 1.162-9.457-.496-.832-1.82-1.328-3.81-2.326z"/>
+              </svg>
+            </a>
           </div>
 
           {/* OS HUD controls instruction text */}
@@ -590,49 +618,6 @@ const App = () => {
           </div>
         </>
       )}
-
-      {/* Floating WhatsApp contact button */}
-      <a 
-        href="https://wa.me/919081105344?text=Hello%20Vardhate%20OS,%20I%20am%20interested%20in%20your%20choice%20engineering%20services."
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="whatsapp-float-btn"
-        title={TRANSLATIONS[lang].whatsappTooltip}
-        style={{
-          position: 'fixed',
-          bottom: '2rem',
-          right: '2rem',
-          width: '56px',
-          height: '56px',
-          borderRadius: '50%',
-          background: '#2450a4',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 8px 30px rgba(36, 80, 164, 0.4)',
-          zIndex: 9999,
-          cursor: 'pointer',
-          transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
-        }}
-      >
-        <span className="whatsapp-pulse-ring"></span>
-        {/* Official WhatsApp icon */}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 175.216 175.552"
-          width="28"
-          height="28"
-          style={{ zIndex: 2, position: 'relative' }}
-        >
-          <defs>
-            <linearGradient id="wa-grad" x1="85.915" y1="175.552" x2="86.535" y2="0.174" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stopColor="#fff"/>
-              <stop offset="1" stopColor="#fff"/>
-            </linearGradient>
-          </defs>
-          <path fill="url(#wa-grad)" d="M87.184 4.176C43.178 4.176 7.39 39.964 7.384 83.97c-.001 13.924 3.637 27.51 10.566 39.47L6.544 171.4l49.135-12.898a79.573 79.573 0 0 0 31.464 6.53h.04c44 0 79.788-35.789 79.796-79.795.003-21.315-8.294-41.355-23.368-56.44C128.534 12.48 108.497 4.178 87.184 4.176zm0 146.043h-.032a66.067 66.067 0 0 1-33.684-9.22l-2.42-1.436-25.078 6.582 6.698-24.464-1.575-2.506a65.907 65.907 0 0 1-10.113-35.205c.006-36.447 29.675-66.11 66.135-66.11 17.664.003 34.266 6.888 46.74 19.373 12.473 12.486 19.344 29.094 19.34 46.763-.006 36.45-29.676 66.123-66.011 66.123zm36.266-49.524c-1.987-1-11.754-5.804-13.576-6.46-1.822-.658-3.147-.986-4.471.993-1.325 1.98-5.129 6.46-6.289 7.786-1.16 1.328-2.319 1.493-4.306.498s-8.388-3.09-15.977-9.865c-5.908-5.273-9.895-11.783-11.056-13.763-1.16-1.983-.124-3.055.872-4.041.895-.886 1.985-2.31 2.978-3.464 1-1.152 1.325-1.979 1.99-3.302.66-1.326.33-2.484-.164-3.479-.495-.993-4.471-10.774-6.123-14.748-1.612-3.875-3.251-3.35-4.471-3.41-1.158-.059-2.484-.07-3.808-.07-1.326 0-3.48.497-5.3 2.478-1.822 1.98-6.953 6.793-6.953 16.573s7.118 19.23 8.11 20.556c.993 1.325 14.009 21.386 33.938 30.003 4.742 2.047 8.444 3.27 11.332 4.185 4.764 1.513 9.102 1.3 12.528.788 3.82-.569 11.758-4.813 13.41-9.46 1.66-4.646 1.66-8.625 1.162-9.457-.496-.832-1.82-1.328-3.81-2.326z"/>
-        </svg>
-      </a>
 
       {/* Location Dialog */}
       {locationOpen && (
