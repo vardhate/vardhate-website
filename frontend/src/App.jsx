@@ -329,7 +329,7 @@ const App = () => {
                   alt="VARDHATE Logo" 
                   className="boot-brand-logo" 
                   onError={(e) => { e.target.onerror = null; e.target.src = '/assets/vardhate-logo-white.png'; }}
-                  style={{ maxWidth: '200px', width: '70%', height: 'auto', objectFit: 'contain' }}
+                  style={{ maxWidth: '380px', width: '90%', height: 'auto', objectFit: 'contain' }}
                 />
               </div>
               <div className="boot-loading-text" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.9rem', letterSpacing: '0.1em', color: 'white' }}>
@@ -516,6 +516,9 @@ const App = () => {
               );
             })}
           </div>
+
+          {/* Scroll spacer to bypass browser flex scroll padding bug */}
+          <div className="mobile-scroll-spacer" />
         </section>
       )}
 
@@ -660,7 +663,7 @@ const App = () => {
                 style={{ border: 0, display: 'block' }}
                 loading="lazy"
                 allowFullScreen
-                src="https://maps.google.com/maps?q=21.2321332,72.8779271&z=18&t=h&output=embed"
+                src="https://maps.google.com/maps?q=loc:21.2321332,72.8779271(Vardhate+HQ)&z=18&t=h&output=embed"
               />
             </div>
 

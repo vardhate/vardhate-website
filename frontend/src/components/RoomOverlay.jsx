@@ -52,8 +52,10 @@ const RoomOverlay = ({ portal, db, lang = 'en', onBack, apiBase = '/backend/api.
             activeService={activeService} 
             setActiveService={setActiveService} 
           />
-        )}
       </div>
+      
+      {/* Scroll spacer to bypass browser flex scroll padding bug */}
+      <div className="mobile-scroll-spacer" />
     </div>
   );
 };
